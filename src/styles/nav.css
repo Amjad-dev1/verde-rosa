@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "QrisMagic-Regular";
+  src: url("QrisMagic-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+nav{
+    padding: 15px 30px;
+    border-radius: 50px;
+}
+
+#Layer_2{
+    width: 30px;
+    transform: translateY(-3px);
+    fill: white;
+}
+
+.logo{
+    font-family: "QrisMagic-Regular", sans-serif;
+    font-size: 30px;
+    display: flex;
+    gap: 10px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    z-index: 999;
+    color: white;
+}
+
+.topbar{
+    display: flex;
+    justify-content: space-between; /* logo left, nav right */
+    align-items: center;            /* vertically centered */
+    width: 95vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 3vh;
+    z-index: 1;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+

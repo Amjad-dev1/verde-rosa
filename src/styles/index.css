@@ -1,0 +1,24 @@
+:root{
+    --primary: rgb(4, 4, 35);
+    --secondary: pink;
+    --gold: rgb(199, 177, 52);
+    --green:green;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("0.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}

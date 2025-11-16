@@ -1,0 +1,33 @@
+.glass{
+    background-color: rgba(0, 7, 44, 0.1);
+    border: 0px solid rgb(0, 0, 0);
+    backdrop-filter: url("#glass-morphism") blur(3px);
+    box-shadow: 0 0 20px 1px rgba(89, 142, 192, 0.2);
+    transition: all 0.5s ease;
+}
+
+
+.glass::before, .glass::after{
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: inherit;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.glass::before{
+    box-shadow: 
+    inset 0 0 2px rgba(208, 224, 255, 0.8),  
+    inset 0 0 0px rgba(95, 113, 186, 0.5); 
+    transform: translateX(-1px) translateY(-0.5px);
+}
+
+.glass::after{
+    box-shadow: 
+    inset 0 0 0px rgba(88, 28, 238, 0.2),  
+    inset 0 0 0px rgba(0, 31, 125, 0.1);
+    transform: translateX(1px) translateY(0.5px);
+}

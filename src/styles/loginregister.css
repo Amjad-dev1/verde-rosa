@@ -1,0 +1,243 @@
+
+.red{
+  background-color: #B25473;
+  transition: all 0.5s ease;
+}
+
+.red:hover{
+  background-color: rgb(141, 13, 34);
+}
+
+.yellow{
+  background-color: #DBB66C;
+  transition: all 0.5s ease;
+}
+.yellow:hover{
+  background-color:rgb(204, 122, 0);
+}
+
+.green{
+  background-color: #7C906B;
+  transition: all 0.5s ease;
+}
+
+.green:hover{
+  background-color: rgb(3, 72, 52);
+}
+
+.red,.yellow,.green{
+  width:14px;
+  height:14px;
+  border-radius: 50%;
+}
+
+.wrapper .close{
+  position: absolute;
+  top:10px;
+  left: 10px;
+  width: 70px;
+  height: 30px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  gap:5px;
+  transition: all 0.5s ease;
+  border-radius: 50px;
+}
+
+.wrapper .close:hover{
+  scale:1.2;
+  left:18px;
+  top:15px;
+}
+
+.wrapper{
+    width: 420px;
+    height:420px;
+    color: white;
+    padding: 30px 40px;
+    transition: all 1s ease;
+    animation: flowMotion 5s infinite ease-in-out;
+    z-index: 1000;
+    border-radius: 15px;
+}
+
+.scaleUp{
+  scale: 1.4;
+}
+
+.wrapper:hover{
+    padding: 30px 25px;
+    cursor: pointer;
+    scale:1.2;
+}
+
+@keyframes flowMotion {
+  0% {
+    transform: translateY(0) ;
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+
+.wrapper h1{
+  color:white;
+    position: relative;
+    font-size: 40px;
+    text-align: center;
+    -webkit-text-stroke: 0.2px white;
+    transition: all 0.5s ease;
+}
+
+/*.wrapper:hover h1{
+    color:rgba(255,255,255,1);
+}
+.wrapper h1:hover{
+    color: rgba(255,255,255,0.7);
+}*/
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline:none;
+    border:2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 40px;
+    font-size: 16px;
+    color:#fff;
+    padding: 20px 45px 20px 20px;
+}
+
+.input-box input::placeholder{
+    color: #fff;
+}
+
+.input-box i {
+    position: absolute;
+    right:20px;
+    top:50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: all 0.3s ease;
+}
+.input-box:hover i{
+    color:#960d28;
+    transform: scale(1.2) translateY(-10px);
+}
+
+.wrapper .remember-forgot{
+    display: flex;
+    justify-content: space-between;
+    font-size:15px;
+    margin: -15px 0 15px;
+}
+
+.remember-forgot label input {
+    accent-color:black;
+    margin-right: 3px;
+}
+
+.remember-forgot a{
+    color: white;
+    text-decoration: none;
+    transition: all 0.15s ease-in-out;
+
+}
+
+.remember-forgot a:hover{
+    text-decoration: none;
+    color:#dc143c;
+}
+
+.wrapper .btn {
+    width: 100%;
+    height: 45px;
+    background:linear-gradient(to top, #c4cfda 0%, white 100%);
+    border:none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    cursor:pointer;
+    font-size: 16px;
+    color: #06103b;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 30px rgba(0, 34, 126, 0.2);
+}
+
+.wrapper .btn:hover {
+    background:linear-gradient(to top, black 0%, rgb(28, 32, 43) 100%);
+    color: white;
+    transform: scale(1.05);
+}
+
+.wrapper .register-link{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+    color: white;
+}
+
+.wrapper .register-link p a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.15s ease-in-out;
+}
+.wrapper .register-link a:hover {
+    text-decoration: none;
+    color:crimson;
+}
+ .credits{
+    position: absolute;
+    color:white;
+    bottom:15px;
+    color: white;
+    transition: all 1s ease;
+    padding: 15px 30px;
+    border-radius: 50px;
+ }
+
+ .credits:hover{
+  scale:1.2;
+  transform: translateY(-5px);
+  letter-spacing: 2px;
+ }
+
+.corner-line{
+  position: absolute;
+  bottom:-17px;
+  right:-17px;
+  width:30px;
+  height:30px;
+  border-bottom-right-radius: 20px;
+  border-right: 4px solid rgba(255,255,255,0);
+  border-bottom: 4px solid rgba(255,255,255,0);
+  transition: all 0.5s ease;
+}
+.wrapper:hover .corner-line{
+  border-right: 4px solid white;
+  border-bottom: 4px solid white;
+}
+.corner-line:hover{
+  scale: 1.2;
+}
