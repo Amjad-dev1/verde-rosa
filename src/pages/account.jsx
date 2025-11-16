@@ -29,8 +29,7 @@ export default function Account() {
       animate={{ opacity: 1, backdropFilter: "blur(0px)" }}
       exit={{ opacity: 0, backdropFilter: "blur(20px)" }}
       transition={{ duration: 0.3 }}
-      className="page"
-    >
+      className="page">
       <Login />
 
       <div className="video-container">
