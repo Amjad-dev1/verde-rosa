@@ -52,13 +52,14 @@
 }
 
 .wrapper{
+    position: relative;
+    transform: translate(-50%, -50%);
     width: 420px;
     height:420px;
     color: white;
     padding: 30px 40px;
     transition: all 1s ease;
     animation: flowMotion 5s infinite ease-in-out;
-    z-index: 1000;
     border-radius: 15px;
 }
 
@@ -207,21 +208,6 @@
     text-decoration: none;
     color:crimson;
 }
- .credits{
-    position: absolute;
-    color:white;
-    bottom:15px;
-    color: white;
-    transition: all 1s ease;
-    padding: 15px 30px;
-    border-radius: 50px;
- }
-
- .credits:hover{
-  scale:1.2;
-  transform: translateY(-5px);
-  letter-spacing: 2px;
- }
 
 .corner-line{
   position: absolute;

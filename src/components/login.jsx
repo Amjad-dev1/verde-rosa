@@ -1,6 +1,4 @@
 import React from "react";
-import "../styles/index.css";
-import "../styles/glass.css";
 import "../styles/loginregister.css";
 export default function Login(){
     return(
@@ -45,9 +43,6 @@ export default function Login(){
 
                 <div className="corner-line"></div>
             </div>
-
-            <div className="credits glass">&#169; 2025 AMJAD a0905_z inc.</div>
         </>
-
     );
 }

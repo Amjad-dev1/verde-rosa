@@ -1,23 +1,12 @@
 import { motion } from "framer-motion";
-import "../styles/nav.css";
-import "../styles/glass.css";
 import "../styles/about.css";
-import "../styles/index.css";
-import "../styles/video.css";
 import back2 from "../assets/back2.mp4";
+import VideoBackground from "../components/videobackground.jsx";
 export default function About(){
     return(
-         <motion.div
-      initial={{ opacity: 0, backdropFilter: "blur(20px)" }}
-      animate={{ opacity: 1, backdropFilter: "blur(0px)" }}
-      exit={{ opacity: 0, backdropFilter: "blur(20px)" }}
-      transition={{ duration: 0.3 }}
-      className="page">
-            <div className="video-container">
-                <video autoPlay muted loop playsInline className="background-video">
-                    <source src={back2} type="video/mp4" />
-                </video>
-            </div>
+        <>
+            <VideoBackground src={back2} />
+
             <div className="about-card glass">
                 <h1>Verde Rosa — Where Nature Meets Art</h1>
                 <p>
@@ -36,7 +25,7 @@ export default function About(){
                 <li>Signature Verde & Rosa palettes</li>
                 </ul>
             </div>
-        </motion.div>
+        </>
     );
 };
 

@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
 import VideoBackground from "../components/videobackground.jsx";
-import back from "../assets/back.mp4";
 
-export default function Donate(){
+export default function Cart(){
     return(
         <>
-            <VideoBackground src={back} />
         </>
     );
-};
-
+};     

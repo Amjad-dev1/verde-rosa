@@ -1,13 +1,16 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
+import FadePage from "./components/fadepage.jsx";
 import "./app.css";
 import Filters from "./components/Filters";
-import Navbar from "./components/navbar.jsx";
-import Home from "./pages/home.jsx";
-import About from "./pages/about.jsx";
-import Products from "./pages/products.jsx";
-import Donate from "./pages/donate.jsx";
-import Account from "./pages/account.jsx";
+import Navbar from "./components/Navbar";
+import Home from "./pages/home";
+import About from "./pages/about";
+import Products from "./pages/products";
+import Donate from "./pages/donate";
+import Account from "./pages/account";
+import Cart from "./pages/cart";
+
 
 export default function App() {
   const location = useLocation();
@@ -16,17 +19,19 @@ export default function App() {
     <>
       <div className="blackout"></div>
       <Filters />
-      <Navbar />
+      <div className="fixed"><Navbar /></div>
 
       <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/products" element={<Products />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/account" element={<Account />} />
-        </Routes>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/"        element={<FadePage><Home /></FadePage>} />
+            <Route path="/about"   element={<FadePage><About /></FadePage>} />
+            <Route path="/products"element={<FadePage><Products /></FadePage>} />
+            <Route path="/donate"  element={<FadePage><Donate /></FadePage>} />
+            <Route path="/cart"    element={<FadePage><Cart /></FadePage>} />
+            <Route path="/account" element={<FadePage><Account /></FadePage>} />
+          </Routes>
       </AnimatePresence>
+
     </>
   );
 }

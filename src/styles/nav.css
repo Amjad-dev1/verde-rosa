@@ -31,14 +31,16 @@ nav{
 
 .topbar{
     display: flex;
-    justify-content: space-between; /* logo left, nav right */
-    align-items: center;            /* vertically centered */
+    justify-content: space-between;
+    align-items: center;           
     width: 95vw;
-    position: absolute;
+    position: fixed;
     left: 50%;
     transform: translateX(-50%);
     top: 3vh;
     z-index: 1;
+    padding: 10px 20px;
+    border-radius: 15px;
 }
 
 a{
@@ -48,3 +50,11 @@ a{
 }
 
 
+@media (max-width: 768px) {
+    .logo{
+        font-size: 20px;
+    }
+    nav{
+        padding: 5px 15px;
+    }
+}
