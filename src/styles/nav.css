@@ -64,15 +64,6 @@ a{
 }
 
 
-@media (max-width: 768px) {
-    .logo{
-        font-size: 20px;
-    }
-    nav{
-        padding: 5px 15px;
-    }
-}
-
 .nav-item {
   color: white;
 }
@@ -102,4 +93,124 @@ a{
 
 .right-item.active {
   color: green;
+}
+
+
+:root {
+  --primary: rgb(4, 4, 35);
+  --secondary: pink;
+  --gold: rgb(199, 177, 52);
+  --green: green;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 98vw;
+  padding: 10px 20px;
+  position: fixed;
+  top: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 15px;
+  z-index: 10;
+}
+
+.logo {
+  font-family: "QrisMagic-Regular", sans-serif;
+  font-size: 30px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: white;
+}
+
+.center,
+.right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-item,
+.right-item {
+  color: white;
+  text-decoration: none;
+}
+
+.nav-item.active {
+  color: rgb(211, 172, 117);
+}
+
+.right-item.active {
+  color: green;
+}
+
+.nav-indicator,
+.right-indicator {
+  position: absolute;
+  bottom: -8px;
+  height: 3px;
+  border-radius: 30px;
+  transition: transform 0.35s ease, width 0.25s ease, opacity 0.35s ease;
+}
+
+@media (max-width: 820px) {
+
+  .topbar {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100vw;
+    padding: 5px 15px;
+    background: transparent;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 20px;
+    gap: 5px;
+    transform: translateX(-15%);
+  }
+
+  .right {
+    gap: 10px;
+    padding: 15px 20px 10px;
+  }
+
+  .right-item {
+    font-size: 18px;
+  }
+
+  /* Center nav becomes bottom dock */
+  .center {
+    position: fixed;
+    bottom: 2%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 480px;
+    padding: 7px 10px 10px;
+    gap: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-item {
+    font-size: 14px;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: column; /* icon + text side by side */
+    align-items: center;
+    gap: 5px;
+  }
+
+  .nav-indicator {
+    
+    bottom: 0;
+    height: 3px;
+    border-radius: 3px;
+  }
 }
