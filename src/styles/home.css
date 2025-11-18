@@ -2,9 +2,26 @@
 .panels{
     position: relative;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 100vh;
+    transform: translateY(5%);
 }
+
+.outline{
+    border : 2px solid white;
+}
+
+
+.panels .outer{
+    position: relative;
+    width: 95%;
+    height: 80%;
+}
+
+
 .description{
     position: absolute;
     bottom: 30px;
@@ -22,3 +39,4 @@
         text-align: center;
     }
 }
+

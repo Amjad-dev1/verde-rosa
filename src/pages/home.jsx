@@ -7,12 +7,11 @@ export default function Home(){
 <>
       <VideoBackground src={back5} />
               <div className="panels">
-                <div className="description">
-                    Flowers That Speak Louder Than Words
+                <div className="outer outline">
                 </div>
               </div>
               <div className="panels">
-                <div className="description">rrrrr</div>
+                
               </div>
         </>
     );

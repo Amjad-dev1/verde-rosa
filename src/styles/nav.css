@@ -5,9 +5,13 @@
   font-style: normal;
 }
 
-nav{
+.center,.right{
     padding: 15px 30px;
     border-radius: 50px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #Layer_2{
@@ -29,11 +33,21 @@ nav{
     color: white;
 }
 
+.logo span{
+    font-family: inherit;
+}
+
+.center{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .topbar{
     display: flex;
     justify-content: space-between;
     align-items: center;           
-    width: 95vw;
+    width: 98vw;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
@@ -57,4 +71,35 @@ a{
     nav{
         padding: 5px 15px;
     }
+}
+
+.nav-item {
+  color: white;
+}
+
+.nav-item.active {
+  color: rgb(211, 172, 117); /* keep same or highlight if you want */
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: -8px; /* below the nav items */
+  height: 3px;
+  border-radius: 30px;
+  transition: transform 0.35s ease, width 0.25s ease;
+  left: 0;
+}
+
+
+.right-indicator {
+  position: absolute;
+  bottom: -8px;
+  height: 3px;
+  border-radius: 30px;
+  left: 0;
+  transition: transform 0.35s ease, width 0.35s ease, opacity 0.35s ease;
+}
+
+.right-item.active {
+  color: green;
 }
