@@ -1,9 +1,8 @@
 .glass{
-    background-color: rgba(0, 7, 44, 0.1);
-    border: 0px solid rgb(0, 0, 0);
+    background-color: rgba(0, 7, 44, 0.2);
+    border: 1px solid white;
     backdrop-filter: url("#glass-morphism") blur(3px);
     box-shadow: 0 0 20px 1px rgba(89, 142, 192, 0.2);
-    transition: all 0.5s ease;
     z-index: 1;
 }
 
