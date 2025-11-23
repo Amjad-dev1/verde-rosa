@@ -1,11 +1,11 @@
 import "../styles/home.css";
 import VideoBackground from "../components/videobackground.jsx";
 import back from "../assets/back.mp4";
-
 import Footer from "../components/Footer.jsx";
 import Vase3D from "../components/vase3d.jsx";
 import FeaturedBouquets from "../components/featuredbouquet.jsx";
 import ServiceFeatures from "../components/servicefeatures.jsx";
+import Subscription from "../components/subscription.jsx";
 export default function Home() {
   return (
     <>
@@ -26,6 +26,9 @@ export default function Home() {
       </div>
       <div className="panelstwo">
         <ServiceFeatures/>
+      </div>
+      <div className="panels">
+        <Subscription/>
       </div>
       <Footer/>
     </>
