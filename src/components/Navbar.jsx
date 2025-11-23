@@ -16,7 +16,8 @@ export default function Navbar() {
   pathname !== "/" &&
     pathname !== "/products" &&
     pathname !== "/donate" &&
-    pathname !== "/about";
+    pathname !== "/about"&& 
+    pathname !== "/BouquetBuilder";
 
   useEffect(() => {
   const indicator = indicatorRef.current;
@@ -98,6 +99,7 @@ useEffect(() => {
           <NavLink to="/" className="nav-item"><i class='bx bxs-home'></i> Home</NavLink>
           <NavLink to="/about" className="nav-item"><i class='bx bxs-help-circle'></i> About</NavLink>
           <NavLink to="/products" className="nav-item"><i class='bx bxs-store'></i> Bouquets</NavLink>
+          <NavLink to="/BouquetBuilder" className="nav-item"><i class='bx bxs-florist'></i> BloomCraft</NavLink>
           <NavLink to="/donate" className="nav-item"><i class='bx bxs-leaf'></i> Sustainability</NavLink>
           
           <span className="nav-indicator" ref={indicatorRef}></span>

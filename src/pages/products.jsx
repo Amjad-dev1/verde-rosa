@@ -24,7 +24,6 @@ export default function Products() {
 
       <div className="products-section">
         <VideoBackground src={back3} />
-        <h1 className="products-title">Our Flowers</h1>
         <ProductGrid products={products} />
       </div>
     </>

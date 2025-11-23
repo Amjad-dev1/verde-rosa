@@ -10,6 +10,7 @@ import Products from "./pages/products";
 import Donate from "./pages/donate";
 import Account from "./pages/account";
 import Cart from "./pages/cart";
+import BouquetBuilder from "./pages/BouquetBuilder.jsx";
 
 export default function App() {
   const location = useLocation();
@@ -29,7 +30,7 @@ export default function App() {
             <Route path="/donate"  element={<FadePage><Donate /></FadePage>} />
             <Route path="/cart"    element={<FadePage><Cart /></FadePage>} />
             <Route path="/account" element={<FadePage><Account /></FadePage>} />
-            
+            <Route path="/BouquetBuilder" element={<FadePage><BouquetBuilder/></FadePage>} />
           </Routes>
       </AnimatePresence>
 

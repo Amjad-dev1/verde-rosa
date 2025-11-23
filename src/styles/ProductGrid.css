@@ -1,7 +1,12 @@
 /* GRID CONTAINER */
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  display: flex;
+  top:0;
+  left: 0;
+  width: 100vw;
+  height:fit-content;
+  display:flex;
+  background-color: seagreen;
   gap: 30px;
   padding: 40px 20px;
 }
