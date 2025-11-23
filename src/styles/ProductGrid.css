@@ -1,0 +1,88 @@
+/* GRID CONTAINER */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* CARD STYLING */
+.product-card {
+  max-width: 300px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* CARD HOVER EFFECT */
+.product-card :hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* IMAGE STYLING */
+.product-img {
+  width: 100%;
+  height: 220px; /* adjust if needed */
+  object-fit: cover;
+  border-bottom: 2px solid #f0f0f0;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* INFO SECTION */
+.product-info {
+  padding: 18px 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* PRODUCT NAME */
+.product-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* PRICE STYLING */
+.product-price {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  color: #e84a7a;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ADD TO CART BUTTON */
+button {
+  margin-top: 15px;
+  width: 100%;
+  background: linear-gradient(135deg, #e84a7a, #f06292);
+  border: none;
+  padding: 12px;
+  color: white;
+  border-radius: 14px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #d13d6a, #e84a7a);
+  transform: scale(1.03);
+  box-shadow: 0 4px 15px rgba(232, 74, 122, 0.4);
+}
+
