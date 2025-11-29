@@ -88,19 +88,19 @@ useEffect(() => {
       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet' />
       <div className="topbar">
         
-        <Link to="/" className="right">
+        <Link to="/">
           <div className="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 412.8 412.8"><defs/><g id="Layer_1-2" data-name="Layer 1"><path d="M343 137c-75 0-137-62-137-137 0 75-61 137-136 137 75 0 136 61 136 136 0-75 62-136 137-136M0 206c0 114 92 207 206 207 0-114-92-207-206-207M413 206c-114 0-207 93-207 207 114 0 207-93 207-207" class="cls-1"/></g></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" id="Layer_2" data-name="Layer 2" viewBox="0 0 412.8 412.8"><defs/><g id="Layer_1-2" data-name="Layer 1"><path d="M343 137c-75 0-137-62-137-137 0 75-61 137-136 137 75 0 136 61 136 136 0-75 62-136 137-136M0 206c0 114 92 207 206 207 0-114-92-207-206-207M413 206c-114 0-207 93-207 207 114 0 207-93 207-207" className="cls-1"/></g></svg>
             <span>Verde Rosa</span>
           </div>
         </Link>
 
         <div className="center glass nav-center" ref={navRef}>
-          <NavLink to="/" className="nav-item"><i class='bx bxs-home'></i> Home</NavLink>
-          <NavLink to="/about" className="nav-item"><i class='bx bxs-help-circle'></i> About</NavLink>
-          <NavLink to="/products" className="nav-item"><i class='bx bxs-store'></i> Bouquets</NavLink>
-          <NavLink to="/BouquetBuilder" className="nav-item"><i class='bx bxs-florist'></i> BloomCraft</NavLink>
-          <NavLink to="/donate" className="nav-item"><i class='bx bxs-leaf'></i> Sustainability</NavLink>
+          <NavLink to="/" className="nav-item"><i className='bx bxs-home'></i> Home</NavLink>
+          <NavLink to="/about" className="nav-item"><i className='bx bxs-help-circle'></i> About</NavLink>
+          <NavLink to="/products" className="nav-item"><i className='bx bxs-store'></i> Bouquets</NavLink>
+          <NavLink to="/BouquetBuilder" className="nav-item"><i className='bx bxs-florist'></i> BloomCraft</NavLink>
+          <NavLink to="/donate" className="nav-item"><i className='bx bxs-leaf'></i> Sustainability</NavLink>
           
           <span className="nav-indicator" ref={indicatorRef}></span>
         </div>
