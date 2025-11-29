@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/featuredbouquets.css";
 
-export default function FeaturedBouquets() {
+export default function BabiesNewborn() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchFeaturedProducts = async () => {
+    const fetchCategoryProducts = async () => {
       try {
         setLoading(true);
         setError(null);
@@ -23,46 +23,45 @@ export default function FeaturedBouquets() {
         const data = await response.json();
 
         if (data.success && data.data) {
-          // Filter for specific product IDs: 2, 6, 59
-          const featuredIds = [2, 6, 59];
-          const featuredProducts = data.data.filter(product =>
-            featuredIds.includes(parseInt(product.ProductID))
-          );
+          // Filter for "Baby & Newborn" category and take first 3
+          const categoryProducts = data.data
+            .filter(product => product.Category === "Baby & Newborn")
+            .slice(0, 3);
 
-          console.log("Featured products found:", featuredProducts);
-          setProducts(featuredProducts);
+          console.log("Baby & Newborn products found:", categoryProducts);
+          setProducts(categoryProducts);
         } else {
           throw new Error(data.error || "Failed to fetch products");
         }
       } catch (error) {
-        console.error("Error fetching featured products:", error);
+        console.error("Error fetching Baby & Newborn products:", error);
         setError(error.message);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchFeaturedProducts();
+    fetchCategoryProducts();
   }, []);
 
   const getBriefDescription = (description) => {
     if (!description) return "";
     const words = description.split(' ');
-    if (words.length <= 8) return description;
-    return words.slice(0, 8).join(' ') + '...';
+    if (words.length <= 10) return description;
+    return words.slice(0, 10).join(' ') + '...';
   };
 
   if (loading) {
     return (
-      <section className="featured-section">
+      <section className="featured-section pink-theme">
         <div className="featured-container">
           <h2 className="featured-title">
             <div className="highlight"></div>
-            Featured Bouquets
+            Babies and Newborn
           </h2>
           <div className="featured-subtitle">
             <div className="highlight"></div>
-            <span>Loading featured products...</span>
+            <span>Loading products...</span>
           </div>
           <div className="loading-spinner">Loading...</div>
         </div>
@@ -72,15 +71,15 @@ export default function FeaturedBouquets() {
 
   if (error) {
     return (
-      <section className="featured-section">
+      <section className="featured-section pink-theme">
         <div className="featured-container">
           <h2 className="featured-title">
             <div className="highlight"></div>
-            Featured Bouquets
+            Babies and Newborn
           </h2>
           <div className="featured-subtitle">
             <div className="highlight"></div>
-            <span>Error loading featured products</span>
+            <span>Error loading products</span>
           </div>
           <div className="error-message">Error: {error}</div>
         </div>
@@ -89,20 +88,20 @@ export default function FeaturedBouquets() {
   }
 
   return (
-    <section className="featured-section">
+    <section className="featured-section pink-theme">
       <div className="featured-container">
         <h2 className="featured-title">
           <div className="highlight"></div>
-          Featured Bouquets
+          Babies and Newborn
         </h2>
         <div className="featured-subtitle">
           <div className="highlight"></div>
-          <span>Seasonal arrangements crafted with elegance and artistic detail.</span>
+          <span>Delicate arrangements for the newest members of the family.</span>
         </div>
 
         <div className="featured-grid">
           {products.length === 0 ? (
-            <div className="no-products">No featured products found.</div>
+            <div className="no-products">No products found in this category.</div>
           ) : (
             products.map((product) => (
               <div className="featured-card glass" key={product.ProductID}>

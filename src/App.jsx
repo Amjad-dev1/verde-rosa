@@ -7,6 +7,7 @@ import Filters from "./components/Filters";
 import Navbar from "./components/Navbar.jsx";
 import Home from "./pages/home";
 import About from "./pages/about";
+import ProductDetails from "./pages/productDetails.jsx";
 import Products1 from "./pages/products1.jsx";
 import Donate from "./pages/donate";
 import Account from "./pages/account";
@@ -55,6 +56,7 @@ export default function App() {
             <Route path="/"        element={<FadePage><Home /></FadePage>} />
             <Route path="/about"   element={<FadePage><About /></FadePage>} />
             <Route path="/products"element={<FadePage><Products1 /></FadePage>} />
+            <Route path="/product/:id" element={<FadePage><ProductDetails /></FadePage>} />
             <Route path="/donate"  element={<FadePage><Donate /></FadePage>} />
             <Route path="/cart"    element={<FadePage><Cart /></FadePage>} />
             <Route path="/account" element={<FadePage><Account /></FadePage>} />

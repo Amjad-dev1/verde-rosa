@@ -73,20 +73,40 @@
 
 .cta{
     z-index: 10;
-    position: absolute;
-    top: 85%;
+    position: relative;
+    top: 37%;
+    left: -30%;
     padding: 15px 30px;
-    font-size: 1rem;
-    color: white;
-    text-decoration: none;
     border-radius: 50px;
-    transition: all 0.5s ease;
-    letter-spacing: 0.2em;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    color: white;
 }
 
-.cta:hover{
-    scale: 1.1;
+.cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
+
+.cta:hover::before {
+    left: 100%;
+}
+
+.cta:hover {
+    transform:translateY(-2px) scale(1.05);
+}
+
 
 .blurred-circle {
   position: absolute;

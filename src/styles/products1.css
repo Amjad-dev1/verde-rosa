@@ -8,6 +8,7 @@
 
 /* MAIN PAGE LAYOUT */
 .products-page {
+  position: relative;
   display: flex;
   padding: 40px;
   gap: 40px;
@@ -21,10 +22,13 @@
 
 .products-grid {
   display: grid;
+  position: relative;
+  right: -17%;
   grid-template-columns: repeat(auto-fit, minmax(260px, 260px));
   justify-content: center; /* keeps it centered */
   gap: 10px;
   flex: 1;
+  max-width: 80%;
 }
 
 /* PRODUCT CARD */
@@ -97,6 +101,48 @@
   color: #ffd8ff;
 }
 
+/* Add to Cart Button */
+.add-to-cart-btn {
+  margin-top: 15px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50px;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.add-to-cart-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Price Section */
+.price-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.view-details-link {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+  transform: translateX(65px);
+}
+
+.view-details-link:hover {
+  opacity: 1;
+  color: var(--gold);
+}
+
 /* MOBILE */
 @media (max-width: 900px) {
   .products-page {
@@ -112,7 +158,7 @@
   display: flex;
   flex-direction: column;
   gap: 25px;
-  position: sticky;
+  position: fixed;
   top: 140px;
   height: fit-content;
   padding: 20px;
@@ -186,7 +232,7 @@
 
 .category-popup {
   position: absolute;
-  top: 60px;
+  top: 72px;
   left: 1px;
   width: 100%;
   padding: 12px;
@@ -232,7 +278,7 @@
 
 .sort-popup {
   position: absolute;
-  top: 60px;
+  top: 42px;
   left: 1px;
   width: 100%;
   padding: 12px;
