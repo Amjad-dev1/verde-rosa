@@ -101,21 +101,38 @@
 
 /* Button */
 .featured-btn {
-  padding: 8px 18px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  background: transparent;
-  color: white;
+  padding: 10px 30px;
+  border-radius: 50px;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  font-size: 13px;
-  letter-spacing: 0.5px;
-  transition: background 0.25s ease, color 0.25s ease;
-  align-self: start;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+  position: relative;
+  background-color: transparent;
+  outline: 1px solid white;
+  color: white;
+  right: -190px;
+}
+
+.featured-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+.featured-btn:hover::before {
+  left: 100%;
 }
 
 .featured-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
+  transform: translateY(-2px) scale(1.05);
 }
+
 
 /* ========================= */
 /*        RESPONSIVE         */

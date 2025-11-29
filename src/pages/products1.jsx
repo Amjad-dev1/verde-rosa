@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "../styles/products1.css";
 import back3 from "../assets/back3.mp4";
 import VideoBackground from "../components/videobackground.jsx";
+import { Link } from "react-router-dom";
+
 
 export default function ProductsPage() {
   const [products, setProducts] = useState([]);
@@ -11,6 +13,7 @@ export default function ProductsPage() {
   const [sortBy, setSortBy] = useState(null);
   const [sortOpen, setSortOpen] = useState(false);
   const [categoryOpen, setCategoryOpen] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
 
   const getSortLabel = () => {
     if (!sortBy) return "Sort By";
@@ -39,7 +42,46 @@ export default function ProductsPage() {
         if (data.success) setCategories(data.data);
       })
       .catch((err) => console.error(err));
+
+    // Check login status
+    fetch("http://localhost:8000/api/session_check.php", {
+      credentials: "include",
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        setLoggedIn(data.logged_in);
+      })
+      .catch((err) => console.error(err));
   }, []);
+
+  const addToCart = async (productId) => {
+    console.log("addToCart called with productId:", productId);
+    console.log("loggedIn state:", loggedIn);
+
+    if (!loggedIn) {
+      alert("Please log in to add items to cart");
+      return;
+    }
+
+    try {
+      console.log("Making API call to addToCart");
+      const res = await fetch("http://localhost:8000/api/addToCart.php", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        credentials: "include",
+        body: new URLSearchParams({ product_id: productId }),
+      });
+      const data = await res.json();
+      console.log("API response:", data);
+      if (data.success) {
+        alert("Item added to cart!");
+      } else {
+        alert(data.error);
+      }
+    } catch (error) {
+      console.error("Add to cart failed:", error);
+    }
+  };
 
   // Filtered and sorted products
   const filteredProducts = products
@@ -122,12 +164,22 @@ export default function ProductsPage() {
         {filteredProducts.length > 0 ? (
           filteredProducts.map((p) => (
             <div key={p.ProductID} className="product-card glass">
-              <img
-                src={`/products/${p.ProductID}.webp`}
-                alt={p.ProductName}
-              />
+              <Link to={`/product/${p.ProductID}`}>
+                <img
+                  src={`/products/${p.ProductID}.webp`}
+                  alt={p.ProductName}
+                />
+              </Link>
               <h3>{p.ProductName}</h3>
-              <p className="price">${p.Price}</p>
+              <div className="price-section">
+                <p className="price">${p.Price}</p>
+                <Link to={`/product/${p.ProductID}`} className="view-details-link">
+                  View Details
+                </Link>
+              </div>
+              <button className="add-to-cart-btn" onClick={() => addToCart(p.ProductID)}>
+                Add to Cart
+              </button>
             </div>
           ))
         ) : (
