@@ -1,0 +1,176 @@
+/* === PAGE === */
+.dashboard-full {
+  min-height: 100vh;
+  width: 70vw;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  margin-top: 80px;
+  overflow: hidden;
+}
+
+/* === HEADING === */
+.dashboard-full h1 {
+  font-size: 2.4rem;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  color: rgb(3, 3, 43);
+}
+
+/* === BENTO GRID 2x2 === */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto;
+  gap: 20px;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
+}
+
+/* First row: Personal Info & Address */
+/* Second row: Donations & Orders (Orders spans 2 rows horizontally if needed) */
+.panel5.orders {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+.panel5.donations {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+}
+
+/* === PANEL STYLING === */
+.dashboard-full .panel5 {
+  border-radius: 18px;
+  padding: 25px;
+  transition: 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 150px;
+}
+
+.dashboard-full .panel5:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 22, 54, 0.2);
+}
+
+/* === PANEL CONTENT WRAPPER === */
+.dashboard-full .panel5-content {
+  flex-grow: 1;           /* push buttons to bottom */
+  display: flex;
+  flex-direction: column;
+}
+
+/* === PANEL BUTTONS FIX === */
+.dashboard-full .panel5 .btn {
+  width: auto;            /* fit content */
+  margin-top: 15px;       /* spacing from content */
+  align-self: center; /* align left, optional */
+}
+
+
+.dashboard-full .panel5 h2 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #ade1c2;
+}
+
+/* === INPUTS === */
+.dashboard-full input {
+  width: 100%;
+  padding: 10px 14px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: 0.3s;
+}
+
+input:not([type="checkbox"]):focus {
+  background: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+}
+
+
+/* === BUTTONS === */
+.dashboard-full .btn {
+  border: none;
+  padding: 15px 27px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-weight: bold;
+  margin: 5px 0;
+  color: #333;
+  background:linear-gradient(to top, #c4cfda 0%, white 100%);
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 0 15px rgba(255, 190, 205, 0.8);
+}
+
+/* === TABLE === */
+.dashboard-full table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  color: #fff;
+}
+
+.dashboard-full table th {
+  text-align: left;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  border-radius: 8px;
+}
+
+.dashboard-full table td {
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* === LOGOUT BUTTON === */
+.dashboard-full .btn.logout {
+  margin-top: 30px;
+  align-self: center;
+  padding: 12px 25px;
+  font-size: 1rem;
+}
+
+/* === LOADING TEXT === */
+.dashboard-full .loading {
+  color: #fff;
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.8rem;
+  opacity: 0.9;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 1000px) {
+  .dashboard-full{
+    width: 90%;
+  }
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+
+  }
+
+  .panel5.orders {
+    grid-column: 1 / 2;
+  }
+
+  .panel5.donations {
+    grid-column: 1 / 2;
+  }
+}

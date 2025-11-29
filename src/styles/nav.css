@@ -151,7 +151,7 @@ a{
 
 @media (max-width: 820px) {
   .topbar {
-    top: 0;
+    top: 10px;
     left: 0;
     transform: none;
     width: 100vw;
@@ -164,7 +164,7 @@ a{
   .logo {
     font-size: 20px;
     gap: 5px;
-    transform: translateX(-15%);
+    padding: 15px 10px 10px;
   }
 
   .right {
@@ -182,7 +182,7 @@ a{
     bottom: 2%;
     left: 50%;
     transform: translateX(-50%);
-    width: 80%;
+    width: fit-content;
     max-width: 400px;
     padding: 7px 10px 10px;
     gap: 0;
