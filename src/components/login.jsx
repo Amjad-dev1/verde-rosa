@@ -76,7 +76,7 @@ export default function Login({ onSwitch }) {
             <a href="#">Forgot Password?</a>
           </div>
 
-          <button type="submit" className="btn">
+          <button type="submit" className="btn0">
             Login
           </button>
 

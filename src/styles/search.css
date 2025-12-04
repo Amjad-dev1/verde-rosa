@@ -1,0 +1,195 @@
+/* ===========================
+   BACKDROP
+=========================== */
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100px;
+  z-index: 1000;
+
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(0px);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease, backdrop-filter 0.5s ease, background 0.5s ease;
+}
+
+.search-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}
+
+/* ===========================
+   POPUP CONTAINER
+=========================== */
+.search-popup-container {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 70vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.38);
+
+  opacity: 0;
+  transform: translateY(40px) scale(0.92);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* POP-IN / POP-OUT CLASSES */
+.search-popup-container.pop-in {
+  opacity: 1;
+  transform: translateY(0px) scale(1);
+}
+
+.search-popup-container.pop-out {
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+}
+
+/* ===========================
+   INPUT AREA
+=========================== */
+.search-input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-input-field {
+  width: 100%;
+  padding: 15px 50px 15px 20px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.22);
+  color: white;
+  font-size: 18px;
+  outline: none;
+}
+
+.search-input-field::placeholder {
+  color: #d9d9d9;
+  opacity: 1;
+}
+
+/* Close button */
+.search-close-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.search-close-btn:hover {
+  color: var(--gold);
+}
+
+/* ===========================
+   RESULTS LIST
+=========================== */
+.search-results-list {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  transition: background 0.25s ease;
+}
+
+.search-result-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.search-item-image {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.search-item-details {
+  flex: 1;
+}
+
+.search-item-name {
+  margin: 0;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.search-item-price {
+  margin: 5px 0 0 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+}
+
+/* VIEW DETAILS BUTTON */
+.search-view-details-btn {
+  background: linear-gradient(135deg, #d3b475, #8b7355);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-view-details-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(211, 180, 117, 0.4);
+}
+
+.search-loading,
+.search-no-results,
+.search-placeholder {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 20px;
+  font-size: 16px;
+}
+
+/* SCROLLBAR */
+.search-results-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.search-results-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.search-results-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}

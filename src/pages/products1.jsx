@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import "../styles/products1.css";
-import back3 from "../assets/back3.mp4";
-import VideoBackground from "../components/videobackground.jsx";
 import { Link } from "react-router-dom";
+import VideoBackground from "../components/videobackground.jsx";
+import back90 from "../assets/back90.mp4";
 
 
 export default function ProductsPage() {
@@ -99,9 +99,10 @@ export default function ProductsPage() {
     });
 
   return (
+    <>
     <div className="productspage">
     <div className="products-page">
-    <VideoBackground src={back3} />
+    <VideoBackground src={back90} />
       {/* Filters Panel */}
       <aside className="filters glass">
         <h2>Filters</h2>
@@ -188,5 +189,6 @@ export default function ProductsPage() {
       </div>
     </div>
     </div>
+    </>
   );
 }

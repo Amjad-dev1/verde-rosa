@@ -96,7 +96,7 @@ export default function Register({ onSwitch }) {
             <i className="bx bxs-lock-alt"></i>
           </div>
 
-          <button type="submit" className="btn marginn">
+          <button type="submit" className="btn0 marginn">
             Create Account
           </button>
 

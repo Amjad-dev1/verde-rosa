@@ -123,7 +123,7 @@
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 10px;
-  color: var(--secondary);
+  color: white;
 }
 
 .product-description {
@@ -234,3 +234,18 @@
     text-align: center;
   }
 }
+
+/*.gradientbg{
+  min-width: 100vw;
+  max-width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background: url("src/assets/green gradient.webp") no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  will-change: transform;
+}
+*/

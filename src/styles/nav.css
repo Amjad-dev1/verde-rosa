@@ -13,6 +13,16 @@
     fill: white;
 }
 
+.search-btn{
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.search-btn i{
+  font-weight: bolder;
+}
+
 .logo{
     font-family: "QrisMagic-Regular", sans-serif;
     font-size: 30px;

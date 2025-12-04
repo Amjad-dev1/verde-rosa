@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import "../styles/cart.css";
 import VideoBackground from "../components/videobackground.jsx";
-import back3 from "../assets/back3.mp4";
+import back5 from "../assets/back5.mp4";
 import { Link } from "react-router-dom";
 
 export default function Cart() {
@@ -10,6 +10,13 @@ export default function Cart() {
   const [addresses, setAddresses] = useState([]);
   const [selectedAddress, setSelectedAddress] = useState("");
   const [loading, setLoading] = useState(true);
+
+  // Helper: truncate descriptions safely
+  const truncateDescription = (text, maxLen = 100) => {
+    if (!text && text !== 0) return ""; // handle null/undefined
+    const str = String(text);
+    return str.length > maxLen ? str.slice(0, maxLen - 1).trim() + "…" : str;
+  };
 
   const checkLogin = useCallback(async () => {
     try {
@@ -117,8 +124,8 @@ export default function Cart() {
   if (!loggedIn) {
     return (
       <div className="cart-page">
-        <div className="empty-cart">Please log in to view your cart.</div>
-        <VideoBackground src={back3} />
+        <div className="empty-cart glass">Please log in to view your cart.</div>
+        <VideoBackground src={back5} />
       </div>
     );
   }
@@ -128,14 +135,14 @@ export default function Cart() {
       <div className="cart-container">
         <div className="cart-items">
           {cartItems.length === 0 ? (
-            <div className="empty-cart">Your cart is empty.</div>
+            <div className="empty-cart glass">Your cart is empty.</div>
           ) : (
             cartItems.map((item) => (
               <div key={item.CartItemID} className="cart-item glass">
                 <img src={`/products/${item.ProductID}.webp`} alt={item.ProductName} />
                 <div className="cart-item-details">
                   <h3>{item.ProductName}</h3>
-                  <p>{item.Description}</p>
+                  <p>{truncateDescription(item.Description, 90)}</p>
                   <Link to={`/product/${item.ProductID}`} className="view-details-link">
                     View Details
                   </Link>
@@ -159,7 +166,11 @@ export default function Cart() {
 
             <div className="checkout-form">
               <label>Select Address:</label>
-              <select value={selectedAddress} onChange={(e) => setSelectedAddress(e.target.value)}>
+              <select
+                className="address-select"
+                value={selectedAddress}
+                onChange={(e) => setSelectedAddress(e.target.value)}
+              >
                 <option value="">Choose address</option>
                 {addresses.map((addr) => (
                   <option key={addr.AddressID} value={addr.AddressID}>
@@ -175,7 +186,7 @@ export default function Cart() {
           </div>
         )}
       </div>
-      <VideoBackground src={back3} />
+      <VideoBackground src={back5} />
     </div>
   );
 }

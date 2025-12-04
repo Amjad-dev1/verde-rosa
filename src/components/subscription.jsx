@@ -70,7 +70,7 @@ export default function Subscription() {
             <p className={`sub-note ${message ? "show" : ""}`}>{message}</p>
           </div>
 
-          <button type="submit" className="btn" disabled={loading}>
+          <button type="submit" className="btn0" disabled={loading}>
             <span className={loading ? "loading" : ""}>
               {loading ? "Submitting..." : "Subscribe"}
             </span>
