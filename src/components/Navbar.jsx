@@ -1,6 +1,7 @@
 import "../styles/nav.css";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import SearchPopup from "./SearchPopup.jsx";
 
 export default function Navbar() {
   const { pathname } = useLocation();
@@ -9,6 +10,8 @@ export default function Navbar() {
 
   const rightNavRef = useRef();
   const rightIndicatorRef = useRef();
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
 
   // Determine if no active link
@@ -97,16 +100,19 @@ useEffect(() => {
 
         <div className="center glass nav-center" ref={navRef}>
           <NavLink to="/" className="nav-item"><i className='bx bxs-home'></i> Home</NavLink>
-          <NavLink to="/about" className="nav-item"><i className='bx bxs-help-circle'></i> About</NavLink>
           <NavLink to="/products" className="nav-item"><i className='bx bxs-store'></i> Bouquets</NavLink>
-          <NavLink to="/BouquetBuilder" className="nav-item"><i className='bx bxs-florist'></i> BloomCraft</NavLink>
           <NavLink to="/donate" className="nav-item"><i className='bx bxs-leaf'></i> Sustainability</NavLink>
           
           <span className="nav-indicator" ref={indicatorRef}></span>
         </div>
 
         <div className="right glass nav-right" ref={rightNavRef}>
-          <NavLink to="/search" className="right-item"><i className='bx bx-search'></i></NavLink>
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className={`right-item search-btn ${isSearchOpen ? "active" : ""}`}
+          >
+            <i className='bx bx-search'></i>
+          </button>
           <NavLink to="/cart" className="right-item"><i className='bx bxs-cart'></i></NavLink>
           <NavLink to="/account" className="right-item"><i className='bx bxs-user-circle'></i></NavLink>
 
@@ -114,6 +120,10 @@ useEffect(() => {
         </div>
 
       </div>
+      <SearchPopup 
+        isOpen={isSearchOpen} 
+        onClose={() => setIsSearchOpen(false)} 
+      />
     </>
   );
 }

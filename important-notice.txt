@@ -1,0 +1,13 @@
+This project was Built using React.js (run on vite server) for the frontend, and for the backend,
+a php built in driver was used,
+and for the database, we used local database in ssms, which you need to execute the sql queries (in database folder)
+before running the website
+and to be able to run this project, you'll have to install php, and install its drivers (pdo+sqlsrv) for the backend built in php server
+
+To run both servers each time
+npm run dev (verde rosa folder)
+open the localhost link
+then 
+(cd "path to backend folder")
+php -S localhost:8000
+

@@ -83,17 +83,21 @@
 
 /* Remove button */
 .remove-btn {
-  background-color: #ff8080;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid white;
+  border-radius: 50px;
   color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 4px 8px;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
 }
 
 .remove-btn:hover {
-  background-color: #ff4d4d;
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
 }
 
 /* Total price */

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import VideoBackground from "../components/videobackground.jsx";
-import back from "../assets/back.mp4";
+import back7 from "../assets/back7.mp4";
 import "../styles/donate.css";
 
 export default function Donate() {
@@ -87,42 +87,33 @@ export default function Donate() {
 
     return (
         <>
-            <VideoBackground src={back} />
-            <div className="donate-panels">
-                <div className="donate-hero">
-                    <h1>Sustainability</h1>
-                    <p>Plant a tree, nurture the earth. Your donation helps create a greener future.</p>
-                    <div className="blurred-circle-donate"></div>
+            <VideoBackground src={back7} />
+            <div className="donate-container15">
+                <div className="donate-center15">
+                    <div className="tree-counter15">
+                        <h2>{loading ? "Loading..." : treesPlanted}</h2>
+                        <p>Trees Planted Worldwide</p>
+                    </div>
                 </div>
-            </div>
-            <div className="donate-panels">
-                <div className="donate-facts">
-                    {facts.slice(0, 3).map((fact) => (
-                        <div key={fact.FactID} className="fact-card">
+                <div className="donate-facts15">
+                    {facts.slice(0, 4).map((fact, index) => (
+                        <div key={fact.FactID} className={`fact-panel15 glass fact-panel${index + 1}15`}>
                             <h3>{fact.Title}</h3>
                             <p>{fact.Description}</p>
                         </div>
                     ))}
                 </div>
-            </div>
-            <div className="donate-panels">
-                <div className="donate-form">
+                <div className="donate-form15">
                     <input
                         type="number"
-                        className="donate-input"
+                        className="donate-input15 glass"
                         placeholder="Enter donation amount ($)"
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
-                    <button className="donate-button" onClick={handleDonate}>
+                    <button className="donate-button15" onClick={handleDonate}>
                         Donate Now
                     </button>
-                </div>
-            </div>
-            <div className="donate-panels">
-                <div className="tree-counter">
-                    <h2>{loading ? "Loading..." : treesPlanted}</h2>
-                    <p>Trees Planted Worldwide</p>
                 </div>
             </div>
         </>

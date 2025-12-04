@@ -6,6 +6,7 @@
     --cubic: cubic-bezier(0.11, 1.238, 0.29, 1.221);
 }
 
+
 .panels{
     position: relative;
     background-color: transparent;
@@ -13,9 +14,8 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 100vh;
+     min-height: 100vh;
     font-family: "Poppins",sans-serif;
-    margin: 34px;
 }
 
 .panelstwo{
@@ -55,7 +55,7 @@
 
 .fontface{
     width: 900px;
-    height: 1100px;
+    height: 100vh;
     z-index: 0;
 }
 
@@ -73,19 +73,19 @@
 
 .cta{
     z-index: 10;
-    position: relative;
-    top: 37%;
-    left: -30%;
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 15px 30px;
     border-radius: 50px;
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    overflow: hidden;
-    position: relative;
     text-decoration: none;
     color: white;
+    overflow: hidden;
 }
 
 .cta::before {
@@ -104,7 +104,7 @@
 }
 
 .cta:hover {
-    transform:translateY(-2px) scale(1.05);
+    transform:translateX(-50%) translateY(-2px) scale(1.05);
 }
 
 
@@ -221,4 +221,156 @@
         pointer-events: none; 
         }
 
+}
+
+.ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100vw;
+  background: #eee;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-family: "Poppins", sans-serif;
+  background-color:var(--gold);
+  color: white;
+}
+
+.ticker__move {
+  display: inline-block;
+  padding-left: 100%;
+  animation: move 30s linear infinite;
+}
+
+@keyframes move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+
+.legacy-section12 {
+  background-image: url('../assets/purple gradient.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.legacy-content12 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  padding: 50px;
+  gap: 50px;
+}
+
+.left12 {
+    display: flex;
+  text-align: center;
+  flex-direction: column;
+  margin-right: 40px;
+}
+
+.left12 #Layer_9 {
+    width: 300px;
+  height: 300px;
+  fill: var(--primary);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.left12 #Layer_9:hover{
+    scale: 1.1;
+    fill: var(--gold);
+      filter: drop-shadow(0 0 20px rgb(229, 218, 156));
+}
+
+.left12 span {
+  font-family: "QrisMagic-Regular", sans-serif;
+  font-size: 60px;
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.left12 #Layer_9:hover+span{
+    color: var(--gold);
+    filter: drop-shadow(0 0 20px rgb(229, 218, 156));
+    scale: 1.1;
+}
+
+.right12 {
+  flex: 1;
+  text-align: left;
+}
+
+.right12 h2 {
+  font-family: "Moonscape";
+  letter-spacing: 5px;
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.right12 p {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 3px;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .legacy-content12 {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    gap: 30px;
+  }
+
+  .left12 span {
+    font-size: 40px;
+  }
+
+  .right12 h2 {
+    font-size: 28px;
+  }
+
+  .right12 p {
+    font-size: 16px;
+  }
+}
+
+.location12{
+    background: linear-gradient(to top, rgb(0, 9, 28) 0%, var(--gold) 100%);
+}
+.location12 .words{
+  font-family: "Moonscape";
+  letter-spacing: 5px;
+  font-size: 50px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 60%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.words span{
+  font-family: "Moonscape";
+  letter-spacing: 5px;
+  font-size: 70px;
+}
+
+.location12 iframe{
+  border-radius: 500px;
+  transition: all 0.3s ease;
+}
+
+.location12 iframe:hover{
+  scale: 1.05;
 }

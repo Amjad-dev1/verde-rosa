@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../styles/productDetails.css";
 import VideoBackground from "../components/videobackground.jsx";
-import back3 from "../assets/back3.mp4";
+import back90 from "../assets/back90.mp4";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -62,56 +62,67 @@ export default function ProductDetails() {
 
   if (loading) {
     return (
-      <div className="product-details-page">
-        <VideoBackground src={back3} />
-        <div className="loading">Loading product details...</div>
-      </div>
+      <>
+        <div className="gradientbg"></div>
+        <div className="product-details-page">
+          <div className="loading">Loading product details...</div>
+        </div>
+      </>
     );
   }
 
   if (!product) {
     return (
-      <div className="product-details-page">
-        <VideoBackground src={back3} />
-        <div className="error">Product not found</div>
-      </div>
+      <>
+        <div className="gradientbg"></div>
+        <div className="product-details-page">
+          <div className="error">Product not found</div>
+        </div>
+      </>
     );
   }
 
   return (
-    <div className="product-details-page">
-      <VideoBackground src={back3} />
-      <button className="back-button glass" onClick={() => navigate(-1)}>
-        <i className='bx bx-arrow-back'></i>
-      </button>
-      <div className="product-details-container">
-        {/* Product Image */}
-        <div className="product-image-section">
-          <img
-            src={`/products/${product.ProductID}.webp`}
-            alt={product.ProductName}
-            className="product-large-image"
-          />
-        </div>
-
-        {/* Product Info */}
-        <div className="product-info-section glass">
-          <h1 className="product-title">{product.ProductName}</h1>
-          <p className="product-description">{product.Description}</p>
-
-          <div className="product-price-section">
-            <span className="product-price">${product.Price}</span>
-            <button className="add-to-cart-btn glass" onClick={addToCart}>
-              Add to Cart
-            </button>
+    <>
+      
+      <div className="product-details-page">
+        <VideoBackground src={back90} />
+        <button className="back-button glass" onClick={() => navigate(-1)}>
+          <i className="bx bx-arrow-back"></i>
+        </button>
+        <div className="product-details-container">
+          {/* Product Image */}
+          <div className="product-image-section">
+            <img
+              src={`/products/${product.ProductID}.webp`}
+              alt={product.ProductName}
+              className="product-large-image"
+            />
           </div>
 
-          <div className="product-meta">
-            <p><strong>Category:</strong> {product.Category}</p>
-            <p><strong>Stock:</strong> {product.Stock} available</p>
+          {/* Product Info */}
+          <div className="product-info-section glass">
+            <h1 className="product-title">{product.ProductName}</h1>
+            <p className="product-description">{product.Description}</p>
+
+            <div className="product-price-section">
+              <span className="product-price">${product.Price}</span>
+              <button className="add-to-cart-btn glass" onClick={addToCart}>
+                Add to Cart
+              </button>
+            </div>
+
+            <div className="product-meta">
+              <p>
+                <strong>Category:</strong> {product.Category}
+              </p>
+              <p>
+                <strong>Stock:</strong> {product.Stock} available
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
