@@ -52,14 +52,13 @@ The project brings the business online while preserving its brand identity, comb
 ---
 
 ## 📸 Screenshots / Demo
-![Home page](Screenshots/Screenshot (288).png)
-![Login page](Screenshots/Screenshot (308).png)
-![Details Products page](Screenshots/Screenshot (304).png)
-![Products page](Screenshots/Screenshot (295).png)
-![About](Screenshots/Screenshot (291).png)
-![Sustainability page](Screenshots/Screenshot (298).png)
-![Home page](Screenshots/Screenshot (288).png)
-![Checkout page](Screenshots/Screenshot (301).png)
+![Home page](Screenshots/Screenshot-288.png)
+![Login page](Screenshots/Screenshot-308.png)
+![Details Products page](Screenshots/Screenshot-304.png)
+![Products page](Screenshots/Screenshot-295.png)
+![About](Screenshots/Screenshot-291.png)
+![Sustainability page](Screenshots/Screenshot-298.png)
+![Checkout page](Screenshots/Screenshot-301.png)
 
 
 ## Credits / Assets
