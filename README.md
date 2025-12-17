@@ -52,13 +52,24 @@ The project brings the business online while preserving its brand identity, comb
 ---
 
 ## 📸 Screenshots / Demo
+    ![Home page](Screenshots\Screenshot (288).png)
+    ![Login page](Screenshots\Screenshot (308).png)
+    ![Details Products page](Screenshots\Screenshot (304).png)
+    ![Products page](Screenshots\Screenshot (295).png)
+    ![About](Screenshots\Screenshot (291).png)
+    ![Sustainability page](Screenshots\Screenshot (298).png)
+    ![Home page](Screenshots\Screenshot (288).png)
+    ![checkout page](Screenshots\Screenshot (301).png)
 
-Screenshots and UI walkthroughs are available in the project report.  
----
+## Credits / Assets
+
+- Product details and images used as placeholders were sourced from [Exotica Flower Shop](https://www.exotica.com) for demo purposes.
+- These images are not owned by this project and are used solely for demonstration.
 
 ## ⚙️ Run Locally
 
 > No secrets are included in this repository.
+A notice in /Documentation folder explains how to run this project locally.
 
 ### 1️⃣ Clone
 ```bash
