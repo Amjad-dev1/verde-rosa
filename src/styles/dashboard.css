@@ -12,7 +12,6 @@
   overflow: hidden;
 }
 
-/* === HEADING === */
 .dashboard-full h1 {
   font-family: "Moonscape";
   letter-spacing: 6px;
@@ -22,7 +21,6 @@
   color: white;
 }
 
-/* === BENTO GRID 2x2 === */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -33,8 +31,6 @@
   justify-content: center;
 }
 
-/* First row: Personal Info & Address */
-/* Second row: Donations & Orders (Orders spans 2 rows horizontally if needed) */
 .panel5.orders {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
@@ -45,7 +41,6 @@
   grid-row: 2 / 3;
 }
 
-/* === PANEL STYLING === */
 .dashboard-full .panel5 {
   border-radius: 18px;
   padding: 25px;
@@ -61,18 +56,16 @@
   box-shadow: 0 12px 30px rgba(0, 22, 54, 0.2);
 }
 
-/* === PANEL CONTENT WRAPPER === */
 .dashboard-full .panel5-content {
-  flex-grow: 1;           /* push buttons to bottom */
+  flex-grow: 1;        
   display: flex;
   flex-direction: column;
 }
 
-/* === PANEL BUTTONS FIX === */
 .dashboard-full .panel5 .btn {
-  width: auto;            /* fit content */
-  margin-top: 15px;       /* spacing from content */
-  align-self: center; /* align left, optional */
+  width: auto;        
+  margin-top: 15px;    
+  align-self: center;
 }
 
 
@@ -84,7 +77,6 @@
   color: white;
 }
 
-/* === INPUTS === */
 .dashboard-full input {
   width: 100%;
   padding: 10px 14px;
@@ -104,7 +96,6 @@ input:not([type="checkbox"]):focus {
 }
 
 
-/* === BUTTONS === */
 .dashboard-full .btn {
   padding: 15px 27px;
   border-radius: 50px;
@@ -139,7 +130,6 @@ input:not([type="checkbox"]):focus {
   transform: translateY(-2px) scale(1.05);
 }
 
-/* === TABLE === */
 .dashboard-full table {
   width: 100%;
   border-collapse: collapse;
@@ -160,7 +150,6 @@ input:not([type="checkbox"]):focus {
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* === LOGOUT BUTTON === */
 .dashboard-full .btn.logout {
   margin-top: 30px;
   align-self: center;
@@ -168,7 +157,6 @@ input:not([type="checkbox"]):focus {
   font-size: 1rem;
 }
 
-/* === LOADING TEXT === */
 .dashboard-full .loading {
   color: #fff;
   text-align: center;
@@ -177,7 +165,6 @@ input:not([type="checkbox"]):focus {
   opacity: 0.9;
 }
 
-/* === RESPONSIVE === */
 @media (max-width: 1000px) {
   .dashboard-full{
     width: 90%;

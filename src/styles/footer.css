@@ -4,7 +4,7 @@
   padding: 40px 20px;
   text-align: center;
   font-family: "Poppins", sans-serif;
-  font-weight: 400; /* plain weight */
+  font-weight: 400;
   font-size: 0.95rem;
 }
 
@@ -15,7 +15,6 @@
   gap: 10px;
 }
 
-/* Legal notice */
 .footer-legal {
   font-size: 0.8rem;
   opacity: 0.7;
@@ -24,7 +23,6 @@
   line-height: 1.4;
 }
 
-/* Divider line above social icons */
 .footer-divider {
   width: 60px;
   height: 1px;
@@ -33,13 +31,11 @@
   opacity: 0.5;
 }
 
-/* Store name and creators */
 .footer-store,
 .footer-creators {
   margin: 0;
 }
 
-/* Social links */
 .footer-socials {
   display: flex;
   gap: 20px;
@@ -49,16 +45,15 @@
   color: white;
   text-decoration: none;
   transition: 0.3s ease;
-  font-weight: 400; /* plain weight */
+  font-weight: 400;
 }
 
 .footer-socials a:hover {
-  color: var(--gold); /* subtle hover highlight */
+  color: var(--gold); 
   transform: translateY(-2px);
   transition: 0.3s ease;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .footer {
     padding: 30px 15px;

@@ -6,7 +6,6 @@ header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 
-// Preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
@@ -14,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 
 include_once __DIR__ . "/../db.php";
 
-// Read JSON
+
 $data = json_decode(file_get_contents("php://input"), true);
 
 $fullname = $data["fullname"] ?? null;
@@ -27,7 +26,7 @@ if (!$fullname || !$email || !$password) {
 }
 
 try {
-    // Check if email already exists
+    //check if email already exists
     $check = $conn->prepare("SELECT Email FROM Users WHERE Email = ?");
     $check->execute([$email]);
 
@@ -36,7 +35,7 @@ try {
         exit;
     }
 
-    // Hash password
+    //hash password
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
     $sql = "INSERT INTO Users (FullName, Email, PasswordHash) VALUES (?, ?, ?)";

@@ -11,9 +11,8 @@ export default function Cart() {
   const [selectedAddress, setSelectedAddress] = useState("");
   const [loading, setLoading] = useState(true);
 
-  // Helper: truncate descriptions safely
   const truncateDescription = (text, maxLen = 100) => {
-    if (!text && text !== 0) return ""; // handle null/undefined
+    if (!text && text !== 0) return "";
     const str = String(text);
     return str.length > maxLen ? str.slice(0, maxLen - 1).trim() + "…" : str;
   };

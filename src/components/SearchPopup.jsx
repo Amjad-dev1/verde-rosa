@@ -23,10 +23,9 @@ export default function SearchPopup({ isOpen, onClose }) {
       .finally(() => setLoading(false));
   }, [isOpen, products.length]);
 
-  // Trigger animation when isOpen changes
   useEffect(() => {
     if (isOpen) {
-      setAnimate(true); // trigger pop-in
+      setAnimate(true);
     } else {
       // pop-out animation
       setAnimate(false);
@@ -48,7 +47,7 @@ export default function SearchPopup({ isOpen, onClose }) {
     navigate(`/product/${id}`);
   };
 
-  if (!isOpen && !animate) return null; // unmount after pop-out
+  if (!isOpen && !animate) return null;
 
   return (
     <div
@@ -59,7 +58,7 @@ export default function SearchPopup({ isOpen, onClose }) {
         className={`search-popup-container glass ${animate ? "pop-in" : "pop-out"}`}
         ref={popupRef}
         onAnimationEnd={() => {
-          if (!isOpen) setAnimate(false); // remove from DOM after pop-out
+          if (!isOpen) setAnimate(false);
         }}
       >
         <div className="search-input-wrapper">

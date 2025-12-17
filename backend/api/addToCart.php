@@ -29,7 +29,6 @@ if (!$productId) {
 }
 
 try {
-    // Get or create cart for user
     $sql = "SELECT CartID FROM Carts WHERE UserID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$userId]);
@@ -44,14 +43,12 @@ try {
         $cartId = $cart['CartID'];
     }
 
-    // Check if item already in cart
     $sql = "SELECT CartItemID, Quantity FROM CartItems WHERE CartID = ? AND ProductID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$cartId, $productId]);
     $item = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($item) {
-        // Update quantity
         $newQuantity = $item['Quantity'] + $quantity;
         $sql = "UPDATE CartItems SET Quantity = ? WHERE CartItemID = ?";
         $stmt = $conn->prepare($sql);

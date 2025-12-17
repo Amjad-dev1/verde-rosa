@@ -10,22 +10,22 @@ export default function ServiceFeatures() {
     {
       title: "Professional Service",
       subtitle: "Business in domain since 2005",
-      icon: expertimg // placeholder
+      icon: expertimg
     },
     {
       title: "Luxurious presentation",
       subtitle: "of Flowers, Plants & More",
-      icon:  representimg// placeholder
+      icon:  representimg
     },
     {
       title: "Delivery Across Lebanon",
       subtitle: "Express Delivery Available*",
-      icon: deliveryimg // placeholder
+      icon: deliveryimg
     },
     {
       title: "Live Chat",
       subtitle: "Get in touch with our Team",
-      icon: chatimg // placeholder
+      icon: chatimg
     }
   ];
 

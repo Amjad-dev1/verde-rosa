@@ -28,7 +28,6 @@ if (!$addressId) {
 }
 
 try {
-    // Get cart items
     $sql = "SELECT ci.CartItemID, ci.Quantity, p.ProductID, p.ProductName, p.Price
             FROM CartItems ci
             JOIN Carts c ON ci.CartID = c.CartID
@@ -43,20 +42,17 @@ try {
         exit;
     }
 
-    // Calculate total
     $total = 0;
     foreach ($items as $item) {
         $total += $item['Price'] * $item['Quantity'];
     }
 
-    // Create order
     $sql = "INSERT INTO Orders (UserID, AddressID, OrderDate, TotalAmount, Status, IsPOD, PODStatus)
             VALUES (?, ?, GETDATE(), ?, 'Pending', 1, 'Pending')";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$userId, $addressId, $total]);
     $orderId = $conn->lastInsertId();
 
-    // Add order items
     foreach ($items as $item) {
         $sql = "INSERT INTO OrderItems (OrderID, ProductID, Quantity, UnitPrice)
                 VALUES (?, ?, ?, ?)";
@@ -64,7 +60,6 @@ try {
         $stmt->execute([$orderId, $item['ProductID'], $item['Quantity'], $item['Price']]);
     }
 
-    // Clear cart
     $sql = "DELETE ci FROM CartItems ci
             JOIN Carts c ON ci.CartID = c.CartID
             WHERE c.UserID = ?";

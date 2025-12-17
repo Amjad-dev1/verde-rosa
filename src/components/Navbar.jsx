@@ -14,7 +14,6 @@ export default function Navbar() {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
 
-  // Determine if no active link
   const noActive =
   pathname !== "/" &&
     pathname !== "/products" &&
@@ -30,8 +29,8 @@ export default function Navbar() {
   const navWidth = nav.offsetWidth;
 
  if (noActive) {
-    const width = navWidth * 0.6; // 50% of center div
-    const offset = (navWidth - width) / 2; // center it
+    const width = navWidth * 0.6; 
+    const offset = (navWidth - width) / 2;
     indicator.style.width = `${width}px`;
     indicator.style.transform = `translateX(${offset}px)`;
     indicator.style.opacity = "0.4";

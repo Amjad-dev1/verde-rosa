@@ -1,16 +1,77 @@
-# React + Vite
+# 🌸 Verde Rosa — Full-Stack Flower Shop Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Verde Rosa** is a modern full-stack e-commerce web application built for a family-run flower shop with over 20 years of experience in Beirut, Lebanon.  
+The project brings the business online while preserving its brand identity, combining secure backend logic, dynamic frontend interactions, and an immersive visual experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Overview
 
-## React Compiler
+- Full-stack e-commerce platform (React + PHP + SQL Server)
+- Secure authentication & session-based access control
+- Product browsing, cart, checkout, and user dashboard
+- Sustainability features (donations & tree counter)
+- Modern UI with glassmorphism, video backgrounds, and 3D visuals
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🛠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend**
+- React (Vite)
+- React Router v6
+- React Hooks (useState, useEffect)
+- React Three Fiber (3D model)
+- CSS (Flexbox, Grid, Glassmorphism)
+
+**Backend**
+- PHP
+- PDO (prepared statements)
+- Session-based authentication
+
+**Database**
+- Microsoft SQL Server (SSMS)
+
+**Tools**
+- Git & GitHub
+- Adobe Illustrator
+- Google Maps Embed
+
+---
+
+## ✨ Key Features
+
+- 🔐 **Authentication**: Secure login/register with hashed passwords and protected routes  
+- 🛍 **Products & Cart**: Filter, sort, dynamic product pages, real-time cart updates  
+- 💳 **Checkout**: Address-based checkout with order persistence  
+- 🌱 **Sustainability**: Donations system with global tree counter  
+- 👤 **User Dashboard**: Profile & address management  
+- 🎨 **UI / UX**: Glassmorphism, video backgrounds, scroll-based 3D animation  
+- 📍 **Location**: Embedded Google Maps for easy navigation  
+
+---
+
+## 📸 Screenshots / Demo
+    ![Home page](Screenshots\Screenshot (288).png)
+    ![Login page](Screenshots\Screenshot (308).png)
+    ![Details Products page](Screenshots\Screenshot (304).png)
+    ![Products page](Screenshots\Screenshot (295).png)
+    ![About](Screenshots\Screenshot (291).png)
+    ![Sustainability page](Screenshots\Screenshot (298).png)
+    ![Home page](Screenshots\Screenshot (288).png)
+    ![checkout page](Screenshots\Screenshot (301).png)
+
+## Credits / Assets
+
+- Product details and images used as placeholders were sourced from [Exotica Flower Shop](https://www.exotica.com) for demo purposes.
+- These images are not owned by this project and are used solely for demonstration.
+
+## ⚙️ Run Locally
+
+> No secrets are included in this repository.
+A notice in /Documentation folder explains how to run this project locally.
+
+### 1️⃣ Clone
+```bash
+git clone [text](https://github.com/Amjad-dev1/verde-rosa)
+cd verde-rosa

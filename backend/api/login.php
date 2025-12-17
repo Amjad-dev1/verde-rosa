@@ -1,12 +1,10 @@
 <?php
-// CORS
 
 header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Headers: Content-Type");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 
-// Preflight
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);
     exit;
@@ -15,7 +13,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 session_start();
 include_once __DIR__ . "/../db.php";
 
-// Read JSON
 $data = json_decode(file_get_contents("php://input"), true);
 
 $email = $data["email"] ?? null;
@@ -38,7 +35,6 @@ try {
         exit;
     }
 
-    // Set session
     $_SESSION["UserID"] = $user["UserID"];
     $_SESSION["FullName"] = $user["FullName"];
     $_SESSION["Email"] = $user["Email"];

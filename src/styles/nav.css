@@ -72,12 +72,12 @@ a{
 }
 
 .nav-item.active {
-  color: rgb(211, 172, 117); /* keep same or highlight if you want */
+  color: rgb(211, 172, 117);
 }
 
 .nav-indicator {
   position: absolute;
-  bottom: -8px; /* below the nav items */
+  bottom: -8px; 
   height: 3px;
   border-radius: 30px;
   transition: transform 0.35s ease, width 0.25s ease;
@@ -186,7 +186,6 @@ a{
     font-size: 18px;
   }
 
-  /* Center nav becomes bottom dock */
   .center {
     position: fixed;
     bottom: 2%;
@@ -205,7 +204,7 @@ a{
     font-size: 12px;
     padding: 5px 10px;
     display: flex;
-    flex-direction: column; /* icon + text side by side */
+    flex-direction: column;
     align-items: center;
     gap: 5px;
   }

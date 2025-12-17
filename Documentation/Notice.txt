@@ -1,0 +1,36 @@
+Project Setup
+
+This project is built with React.js (running on a Vite development server) for the frontend, and PHP for the backend. It uses a local SQL Server database for data storage.
+
+Prerequisites
+
+Node.js & npm installed
+
+PHP installed with PDO + SQLSRV drivers
+
+SQL Server Management Studio (SSMS)
+
+Setup Instructions
+
+Database
+
+Open SSMS and execute the SQL queries located in the database folder to create the required database and tables.
+
+Frontend
+
+cd verde-rosa
+npm install
+npm run dev
+
+
+Open the provided localhost link in your browser.
+
+Backend
+
+cd path/to/backend
+php -S localhost:8000
+
+
+Ensure the PHP server is running alongside the frontend.
+
+Now the application should be fully functional on your local machine.
