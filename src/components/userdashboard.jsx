@@ -115,10 +115,8 @@ export default function UserDashboard() {
     <div className="dashboard-full">
       <h1>Welcome, {user.FullName || "User"}!</h1>
 
-      {/* === BENTO GRID START === */}
       <div className="dashboard-grid">
 
-        {/* PERSONAL INFO */}
         <div className="panel5 personal-info glass">
           <h2>Personal Info</h2>
           <div className="panel5-content">
@@ -145,7 +143,6 @@ export default function UserDashboard() {
           )}
         </div>
 
-        {/* ADDRESS */}
         <div className="panel5 address glass">
           <h2>Billing Address</h2>
           <div className="panel5-content">
@@ -183,7 +180,6 @@ export default function UserDashboard() {
           )}
         </div>
 
-        {/* DONATIONS */}
         <div className="panel5 donations glass">
           <h2>Latest Donations</h2>
           <div className="panel5-content">
@@ -206,7 +202,6 @@ export default function UserDashboard() {
           </div>
         </div>
 
-        {/* ORDERS */}
         <div className="panel5 orders glass">
           <h2>Latest Orders</h2>
           <div className="panel5-content">
@@ -232,7 +227,6 @@ export default function UserDashboard() {
         </div>
 
       </div>
-      {/* === BENTO GRID END === */}
 
       <button className="btn logout" onClick={handleLogout}>Logout</button>
     </div>

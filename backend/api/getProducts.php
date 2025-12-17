@@ -3,8 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json");
 
-// FIXED include path
-include_once __DIR__ . "/../db.php"; // <-- note the slash
+include_once __DIR__ . "/../db.php";
 
 if (!$conn) {
     echo json_encode(["success" => false, "error" => "Database connection failed"]);

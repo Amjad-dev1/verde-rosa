@@ -25,7 +25,7 @@ $addressLine = $data['AddressLine'] ?? "";
 $userId = $_SESSION["UserID"];
 
 try {
-    // Check if address exists
+    //check if address exists
     $stmt = $conn->prepare("SELECT * FROM Addresses WHERE UserID = ?");
     $stmt->execute([$userId]);
     $existing = $stmt->fetch(PDO::FETCH_ASSOC);

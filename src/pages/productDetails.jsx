@@ -12,7 +12,6 @@ export default function ProductDetails() {
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    // Check login status
     fetch("http://localhost:8000/api/session_check.php", {
       credentials: "include",
     })
@@ -22,7 +21,6 @@ export default function ProductDetails() {
       })
       .catch((err) => console.error(err));
 
-    // Fetch product details
     fetch(`http://localhost:8000/api/getSingleProduct.php?id=${id}`)
       .then((res) => res.json())
       .then((data) => {
@@ -91,7 +89,6 @@ export default function ProductDetails() {
           <i className="bx bx-arrow-back"></i>
         </button>
         <div className="product-details-container">
-          {/* Product Image */}
           <div className="product-image-section">
             <img
               src={`/products/${product.ProductID}.webp`}
@@ -100,7 +97,6 @@ export default function ProductDetails() {
             />
           </div>
 
-          {/* Product Info */}
           <div className="product-info-section glass">
             <h1 className="product-title">{product.ProductName}</h1>
             <p className="product-description">{product.Description}</p>

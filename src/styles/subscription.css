@@ -154,12 +154,10 @@
 }
 
 
-/* Form body to prevent jitter */
 .form-body {
   transition: all 0.3s ease;
 }
 
-/* Animate message */
 .sub-note {
   text-align: center;
   font-size: 12px;
@@ -172,44 +170,40 @@
   opacity: 0.65;
 }
 
-/* Keep static note always visible */
 .sub-note.static-note {
   opacity: 0.65;
   max-height: none;
   margin-top: 15px;
 }
 
-/* Button text smooth */
 .btn span {
   display: inline-block;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Optional loading animation */
 .btn span.loading {
   opacity: 0.7;
 }
 
-/* === RESPONSIVE WRAPPER === */
 @media (max-width: 600px) {
   .wrapper11 {
-    width: 90%;          /* let it shrink on small screens */
-    padding: 20px 25px;  /* reduce padding */
-    transform: translate(-50%, -50%); /* keep centering */
+    width: 90%;
+    padding: 20px 25px; 
+    transform: translate(-50%, -50%); 
   }
 
   .wrapper11 h1 {
-    font-size: 28px;     /* smaller title */
+    font-size: 28px;
   }
 
   .input-box input {
-    font-size: 14px;     /* smaller input text */
-    padding: 15px 35px 15px 15px; /* adjust padding for smaller width */
+    font-size: 14px;
+    padding: 15px 35px 15px 15px; 
   }
 
   .input-box i {
-    font-size: 18px;     /* slightly smaller icon */
-    right: 15px;         /* adjust spacing */
+    font-size: 18px; 
+    right: 15px;        
   }
 
   .wrapper11 .btn {
@@ -240,7 +234,6 @@
   }
 }
 
-/* Extra small screens */
 @media (max-width: 400px) {
   .wrapper11 {
     width: 90%;

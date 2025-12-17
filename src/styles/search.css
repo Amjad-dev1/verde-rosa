@@ -1,6 +1,4 @@
-/* ===========================
-   BACKDROP
-=========================== */
+
 .search-overlay {
   position: fixed;
   top: 0;
@@ -28,9 +26,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* ===========================
-   POPUP CONTAINER
-=========================== */
 .search-popup-container {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(20px);
@@ -48,7 +43,7 @@
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* POP-IN / POP-OUT CLASSES */
+
 .search-popup-container.pop-in {
   opacity: 1;
   transform: translateY(0px) scale(1);
@@ -59,9 +54,7 @@
   transform: translateY(20px) scale(0.95);
 }
 
-/* ===========================
-   INPUT AREA
-=========================== */
+
 .search-input-wrapper {
   position: relative;
   margin-bottom: 20px;
@@ -101,9 +94,6 @@
   color: var(--gold);
 }
 
-/* ===========================
-   RESULTS LIST
-=========================== */
 .search-results-list {
   max-height: 400px;
   overflow-y: auto;
@@ -148,7 +138,6 @@
   font-size: 14px;
 }
 
-/* VIEW DETAILS BUTTON */
 .search-view-details-btn {
   background: linear-gradient(135deg, #d3b475, #8b7355);
   color: white;
@@ -175,7 +164,6 @@
   font-size: 16px;
 }
 
-/* SCROLLBAR */
 .search-results-list::-webkit-scrollbar {
   width: 6px;
 }

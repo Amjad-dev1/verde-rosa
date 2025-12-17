@@ -1,0 +1,328 @@
+# Technical Report: Verde Rosa E-Commerce Web Application
+
+## Backend Configuration and Session Check
+
+The backend is configured using PHP with PDO for secure database connections to SQL Server. The db.php file establishes the connection, handling errors gracefully. Session management is crucial for user authentication, with session_check.php verifying login status via PHP sessions.
+
+**PHP Snippet (db.php):**
+```php
+<?php
+$serverName = "your_server";
+$connectionOptions = array(
+    "Database" => "VerdeRosaDB",
+    "Uid" => "your_username",
+    "PWD" => "your_password"
+);
+$conn = sqlsrv_connect($serverName, $connectionOptions);
+if (!$conn) {
+    die("Connection failed: " . print_r(sqlsrv_errors(), true));
+}
+?>
+```
+
+**PHP Snippet (session_check.php):**
+```php
+<?php
+session_start();
+header("Access-Control-Allow-Origin: http://localhost:5173");
+header("Access-Control-Allow-Credentials: true");
+header("Content-Type: application/json");
+
+if (isset($_SESSION["UserID"])) {
+    echo json_encode([
+        "logged_in" => true,
+        "user" => [
+            "UserID" => $_SESSION["UserID"],
+            "FullName" => $_SESSION["FullName"],
+            "Email" => $_SESSION["Email"]
+        ]
+    ]);
+} else {
+    echo json_encode(["logged_in" => false]);
+}
+?>
+```
+
+## Login and Register: Frontend and Backend
+
+User authentication involves registration and login. The frontend uses React components for forms, sending JSON data to PHP APIs. The backend validates credentials against the Users table, using password hashing for security. Sessions are started upon successful login.
+
+**PHP Snippet (login.php):**
+```php
+$data = json_decode(file_get_contents("php://input"), true);
+$email = $data["email"];
+$password = $data["password"];
+
+$sql = "SELECT UserID, FullName, Email, PasswordHash FROM Users WHERE Email = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$email]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if ($user && password_verify($password, $user["PasswordHash"])) {
+    $_SESSION["UserID"] = $user["UserID"];
+    echo json_encode(["success" => true, "message" => "Login successful"]);
+} else {
+    echo json_encode(["success" => false, "message" => "Invalid credentials"]);
+}
+```
+
+**React Snippet (login.jsx):**
+```jsx
+const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
+const handleLogin = async () => {
+  const response = await fetch("http://localhost:8000/api/login.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ email, password }),
+  });
+  const data = await response.json();
+  if (data.success) alert("Logged in!");
+};
+```
+
+## Account Dashboard (PHP Backend Integration)
+
+The user dashboard displays personal info, orders, donations, and addresses. It fetches data from PHP APIs like get_user.php, get_orders.php, and update_user.php. The frontend allows editing user details and addresses, updating via POST requests.
+
+**PHP Snippet (get_user.php):**
+```php
+session_start();
+$userId = $_SESSION["UserID"];
+$sql = "SELECT FullName, Email, Phone FROM Users WHERE UserID = ?";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$userId]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+echo json_encode(["success" => true, "user" => $user]);
+```
+
+**React Snippet (userdashboard.jsx):**
+```jsx
+const [user, setUser] = useState(null);
+
+useEffect(() => {
+  fetch("http://localhost:8000/api/session_check.php", { credentials: "include" })
+    .then(r => r.json())
+    .then(data => {
+      if (data.logged_in) setUser(data.user);
+    });
+}, []);
+```
+
+## Home Page with React Three Fiber (R3F)
+
+The home page features a 3D vase model using React Three Fiber, rotating based on scroll. It includes sections like featured bouquets, legacy story, services, and location map. The Vase3D component uses useFrame for animations and lighting.
+
+**React Snippet (home.jsx):**
+```jsx
+import Vase3D from "../components/vase3d.jsx";
+
+export default function Home() {
+  return (
+    <>
+      <div className="panels">
+        <span>PETAL ARTISTRY<Vase3D /></span>
+      </div>
+      <div className="panels" id="featured">
+        <FeaturedBouquets />
+      </div>
+    </>
+  );
+}
+```
+
+**React Snippet (vase3d.jsx):**
+```jsx
+import { Canvas, useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
+
+function VaseModel() {
+  const vase = useGLTF(vaseUrl);
+  const ref = useRef();
+
+  useFrame(() => {
+    const scroll = window.scrollY * 0.005;
+    ref.current.rotation.y = scroll * 2;
+  });
+
+  return <primitive ref={ref} object={vase.scene} />;
+}
+
+export default function Vase3D() {
+  return (
+    <Canvas camera={{ position: [3, -0.2, 4], fov: 40 }}>
+      <directionalLight position={[0, 5, 5]} intensity={5} />
+      <VaseModel />
+    </Canvas>
+  );
+}
+```
+
+## Products Page (products1.jsx): Fetching and Displaying Products
+
+The products page fetches products from getProducts.php and categories from getCategories.php. It displays products in a grid with client-side filtering by category, price, and sorting. Add to cart requires login and calls addToCart.php.
+
+**PHP Snippet (getProducts.php):**
+```php
+$sql = "SELECT ProductID, ProductName, Description, Price, Stock, Category FROM Products";
+$stmt = $conn->prepare($sql);
+$stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo json_encode(["success" => true, "data" => $products]);
+```
+
+**React Snippet (products1.jsx):**
+```jsx
+const [products, setProducts] = useState([]);
+const [selectedCategory, setSelectedCategory] = useState("all");
+
+useEffect(() => {
+  fetch("http://localhost:8000/api/getProducts.php")
+    .then(res => res.json())
+    .then(data => setProducts(data.data));
+}, []);
+
+const filteredProducts = products.filter(p =>
+  selectedCategory === "all" || p.Category === selectedCategory
+);
+
+return (
+  <div className="products-grid">
+    {filteredProducts.map(p => (
+      <div key={p.ProductID}>
+        <img src={`/products/${p.ProductID}.webp`} alt={p.ProductName} />
+        <h3>{p.ProductName}</h3>
+        <button onClick={() => addToCart(p.ProductID)}>Add to Cart</button>
+      </div>
+    ))}
+  </div>
+);
+```
+
+## Sustainability Function: Donate and Get Donations
+
+The donate feature allows users to make donations, tracked in the Donations table. It updates a tree counter. get_donations.php retrieves user donations, while get_tree_counter.php sums planted trees.
+
+**PHP Snippet (donate.php):**
+```php
+$data = json_decode(file_get_contents("php://input"), true);
+$userId = $data["userId"];
+$amount = $data["amount"];
+
+$sql = "INSERT INTO Donations (UserID, Amount, DonateDate, TreesPlanted) VALUES (?, ?, GETDATE(), 1)";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$userId, $amount]);
+echo json_encode(["success" => true]);
+```
+
+**React Snippet (donate.jsx):**
+```jsx
+const [amount, setAmount] = useState("");
+
+const handleDonate = async () => {
+  const response = await fetch("http://localhost:8000/api/donate.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    credentials: "include",
+    body: JSON.stringify({ userId, amount }),
+  });
+  const data = await response.json();
+  if (data.success) alert("Donation successful!");
+};
+```
+
+## Cart Functionality
+
+The cart page displays items from getCart.php, allowing quantity changes and removal. Checkout processes orders via checkout.php, updating inventory.
+
+**PHP Snippet (getCart.php):**
+```php
+$userId = $_SESSION["UserID"];
+$sql = "SELECT p.ProductName, ci.Quantity, p.Price FROM CartItems ci JOIN Products p ON ci.ProductID = p.ProductID WHERE ci.CartID IN (SELECT CartID FROM Carts WHERE UserID = ?)";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$userId]);
+$cart = $stmt->fetchAll(PDO::FETCH_ASSOC);
+echo json_encode(["success" => true, "cart" => $cart]);
+```
+
+**React Snippet (cart.jsx):**
+```jsx
+const [cart, setCart] = useState([]);
+
+useEffect(() => {
+  fetch("http://localhost:8000/api/getCart.php", { credentials: "include" })
+    .then(r => r.json())
+    .then(data => setCart(data.cart));
+}, []);
+```
+
+## Search Functionality
+
+The search popup fetches all products and filters client-side by name. It displays results in a popup with view details buttons.
+
+**React Snippet (SearchPopup.jsx):**
+```jsx
+const [searchTerm, setSearchTerm] = useState("");
+const [products, setProducts] = useState([]);
+
+useEffect(() => {
+  fetch("http://localhost:8000/api/getProducts.php")
+    .then(res => res.json())
+    .then(data => setProducts(data.data));
+}, []);
+
+const filteredProducts = products.filter(p =>
+  p.ProductName.toLowerCase().includes(searchTerm.toLowerCase())
+);
+
+return (
+  <div className="search-popup">
+    <input
+      type="text"
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+      placeholder="Search..."
+    />
+    {filteredProducts.map(p => (
+      <div key={p.ProductID}>
+        <h4>{p.ProductName}</h4>
+        <button onClick={() => navigate(`/product/${p.ProductID}`)}>View</button>
+      </div>
+    ))}
+  </div>
+);
+```
+
+## Add to Cart Mechanism
+
+Adding to cart checks login status, then sends product ID to addToCart.php, which inserts into CartItems table.
+
+**PHP Snippet (addToCart.php):**
+```php
+$userId = $_SESSION["UserID"];
+$productId = $_POST["product_id"];
+
+$sql = "INSERT INTO CartItems (CartID, ProductID, Quantity) VALUES ((SELECT CartID FROM Carts WHERE UserID = ?), ?, 1)";
+$stmt = $conn->prepare($sql);
+$stmt->execute([$userId, $productId]);
+echo json_encode(["success" => true]);
+```
+
+**React Snippet (addToCart function):**
+```jsx
+const addToCart = async (productId) => {
+  if (!loggedIn) {
+    alert("Please log in");
+    return;
+  }
+  const res = await fetch("http://localhost:8000/api/addToCart.php", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    credentials: "include",
+    body: new URLSearchParams({ product_id: productId }),
+  });
+  const data = await res.json();
+  if (data.success) alert("Added to cart!");
+};

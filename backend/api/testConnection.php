@@ -4,7 +4,7 @@ header("Content-Type: application/json");
 include("../db.php");
 
 try {
-    // Simple test query
+    //Simple test query
     $stmt = $conn->query("SELECT GETDATE() AS CurrentTime");
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 

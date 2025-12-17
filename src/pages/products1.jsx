@@ -26,7 +26,6 @@ export default function ProductsPage() {
     }
   };
 
-  // Fetch products and categories
   useEffect(() => {
     fetch("http://localhost:8000/api/getProducts.php")
       .then((res) => res.json())
@@ -43,7 +42,6 @@ export default function ProductsPage() {
       })
       .catch((err) => console.error(err));
 
-    // Check login status
     fetch("http://localhost:8000/api/session_check.php", {
       credentials: "include",
     })
@@ -83,7 +81,6 @@ export default function ProductsPage() {
     }
   };
 
-  // Filtered and sorted products
   const filteredProducts = products
     .filter((p) =>
       selectedCategory === "all" ? true : p.Category === selectedCategory
@@ -103,11 +100,9 @@ export default function ProductsPage() {
     <div className="productspage">
     <div className="products-page">
     <VideoBackground src={back90} />
-      {/* Filters Panel */}
       <aside className="filters glass">
         <h2>Filters</h2>
 
-        {/* Category Filter */}
         <div className="filter-box category-box">
           <h3>Categories</h3>
           <button
@@ -128,7 +123,6 @@ export default function ProductsPage() {
           )}
         </div>
 
-        {/* Price Filter */}
         <div className="filter-box">
           <h3>Price Range</h3>
           <input
@@ -141,7 +135,6 @@ export default function ProductsPage() {
           <p>0$ - {priceRange[1]}$</p>
         </div>
 
-        {/* Sort Filter */}
         <div className="filter-box sort-box">
           <button
             className="category-btn"
@@ -160,7 +153,6 @@ export default function ProductsPage() {
         </div>
       </aside>
 
-      {/* Products Grid */}
       <div className="products-grid">
         {filteredProducts.length > 0 ? (
           filteredProducts.map((p) => (

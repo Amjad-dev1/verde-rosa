@@ -1,6 +1,3 @@
-/* ========================= */
-/*   FEATURED BOUQUETS CSS   */
-/* ========================= */
 
 * {
   box-sizing: border-box;
@@ -51,7 +48,6 @@
   margin-right: auto;
 }
 
-/* Grid */
 .featured-grid {
   margin-top: 40px;
   display: grid;
@@ -59,7 +55,6 @@
   gap: 20px;
 }
 
-/* Card */
 .featured-card {
   background: rgba(24, 28, 148, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -78,7 +73,6 @@
   transform: scale(1.03);
 }
 
-/* Image */
 .featured-image {
   width: auto;
   height: 70%;
@@ -91,7 +85,6 @@
   transform: scale(1.05);
 }
 
-/* Card content */
 .featured-info {
   padding: 15px 15px 20px 15px;
   text-align: left;
@@ -112,7 +105,6 @@
   margin-bottom: 15px;
 }
 
-/* Button */
 .featured-btn {
   padding: 10px 30px;
   border-radius: 50px;
@@ -147,12 +139,6 @@
   transform: translateY(-2px) scale(1.05);
 }
 
-
-/* ========================= */
-/*        RESPONSIVE         */
-/* ========================= */
-
-/* Tablets / iPads */
 @media (max-width: 991px) {
   .panels{
     margin: 0;
@@ -181,7 +167,6 @@
 
 }
 
-/* Small Tablets / Large Phones */
 @media (max-width: 767px) {
   .panels{
     max-width: 100vw;
@@ -215,7 +200,6 @@
   }
 }
 
-/* Mobile / Small Phones */
 @media (max-width: 599px) {
   .panels{
     max-width: 100vw;

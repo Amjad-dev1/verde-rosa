@@ -8,6 +8,7 @@ export default function Donate() {
     const [treesPlanted, setTreesPlanted] = useState(0);
     const [amount, setAmount] = useState("");
     const [loading, setLoading] = useState(true);
+    const TREE_COST = 10; // $10 per tree
 
     useEffect(() => {
         fetchFacts();
@@ -41,13 +42,20 @@ export default function Donate() {
     };
 
     const handleDonate = async () => {
-        if (!amount || amount <= 0) {
+        const donationAmount = parseFloat(amount);
+
+        if (!donationAmount || donationAmount <= 0) {
             alert("Please enter a valid amount.");
             return;
         }
 
+        if (donationAmount < TREE_COST) {
+            const more = TREE_COST - donationAmount;
+            alert(`Minimum $${TREE_COST} donation to plant 1 tree. Add $${more.toFixed(2)} more!`);
+            return;
+        }
+
         try {
-            // Check if user is logged in
             const sessionResponse = await fetch("http://localhost:8000/api/session_check.php", {
                 credentials: "include",
             });
@@ -67,15 +75,15 @@ export default function Donate() {
                 credentials: "include",
                 body: JSON.stringify({
                     userId: parseInt(userId),
-                    amount: parseFloat(amount),
-                    treesPlanted: 1, // Assuming 1 tree per donation for simplicity
+                    amount: donationAmount
                 }),
             });
+
             const data = await response.json();
             if (data.success) {
                 alert("Thank you for your donation!");
                 setAmount("");
-                fetchTreeCounter(); // Refresh the counter
+                fetchTreeCounter();
             } else {
                 alert("Donation failed: " + data.message);
             }
@@ -83,6 +91,13 @@ export default function Donate() {
             console.error("Error donating:", error);
             alert("An error occurred. Please try again.");
         }
+    };
+
+    const nextTreeProgress = () => {
+        const donationAmount = parseFloat(amount) || 0;
+        if (donationAmount >= TREE_COST) return "You are planting at least 1 tree!";
+        const more = TREE_COST - donationAmount;
+        return `$${more.toFixed(2)} more to plant 1 tree 🌱`;
     };
 
     return (
@@ -111,6 +126,9 @@ export default function Donate() {
                         value={amount}
                         onChange={(e) => setAmount(e.target.value)}
                     />
+                    <small style={{ display: "block", margin: "5px 0", color: "#fff" }}>
+                        {nextTreeProgress()}
+                    </small>
                     <button className="donate-button15" onClick={handleDonate}>
                         Donate Now
                     </button>
@@ -119,4 +137,3 @@ export default function Donate() {
         </>
     );
 }
-

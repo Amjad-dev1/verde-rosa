@@ -23,7 +23,6 @@ export default function FeaturedBouquets() {
         const data = await response.json();
 
         if (data.success && data.data) {
-          // Filter for specific product IDs: 2, 6, 59
           const featuredIds = [2, 6, 59];
           const featuredProducts = data.data.filter(product =>
             featuredIds.includes(parseInt(product.ProductID))

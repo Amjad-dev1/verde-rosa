@@ -23,7 +23,6 @@ export default function BabiesNewborn() {
         const data = await response.json();
 
         if (data.success && data.data) {
-          // Filter for "Baby & Newborn" category and take first 3
           const categoryProducts = data.data
             .filter(product => product.Category === "Baby & Newborn")
             .slice(0, 3);

@@ -1,5 +1,4 @@
 import "../styles/ProductGrid.css";
- // make sure this path is correct
 
 export default function ProductGrid({ products }) {
   return (

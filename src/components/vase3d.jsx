@@ -63,18 +63,16 @@ export default function Vase3D() {
     <div className="vase-container">
       <Canvas camera={{ position: [3, -0.2, 4], fov: 40 }} shadows>
 
-        {/* Hemisphere (blue/pink) */}
         <hemisphereLight
-          skyColor="#57d8ffff"     // blue
-          groundColor="#c5789fff"  // pink-magenta
+          skyColor="#57d8ffff"   
+          groundColor="#c5789fff"
           intensity={0}
         />
 
-        {/* Key Light (magenta) */}
         <directionalLight
           position={[0, 5, 5]}
           intensity={5}
-          color="#6fb7e5ff"  // deep pink
+          color="#6fb7e5ff" 
           castShadow
           shadow-mapSize-width={1024}
           shadow-mapSize-height={1024}
@@ -82,14 +80,12 @@ export default function Vase3D() {
           shadow-camera-far={20}
         />
 
-        {/* Fill Light (white) */}
         <directionalLight
           position={[0, -8, 2]}
           intensity={15}
           color="#e3e4ff"
         />
 
-        {/* Rim Light (purple/pink) */}
         <directionalLight
           position={[0, 3, -4]}
           intensity={15}
@@ -100,7 +96,6 @@ export default function Vase3D() {
 
       </Canvas>
 
-      {/* Gradient background via CSS */}
       <div
         style={{
           position: "absolute",

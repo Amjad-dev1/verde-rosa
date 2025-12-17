@@ -28,7 +28,6 @@ if (!$cartItemId) {
 }
 
 try {
-    // Verify the cart item belongs to the user
     $sql = "SELECT ci.CartItemID FROM CartItems ci
             JOIN Carts c ON ci.CartID = c.CartID
             WHERE ci.CartItemID = ? AND c.UserID = ?";
@@ -41,7 +40,7 @@ try {
         exit;
     }
 
-    // Remove the cart item
+    //remove the cart item
     $sql = "DELETE FROM CartItems WHERE CartItemID = ?";
     $stmt = $conn->prepare($sql);
     $stmt->execute([$cartItemId]);
